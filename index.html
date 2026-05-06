@@ -12,143 +12,224 @@
             --gold: #d4af37; --dark: #050505; --grey: #121212; --white: #ffffff;
             --safe: #2ecc71; --montante: #3498db; --fun: #e67e22;
         }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: var(--white); margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: var(--white); margin: 0; padding: 0; overflow-x: hidden; }
 
+        /* HEADER */
         header { background: rgba(0,0,0,0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; cursor: pointer; }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; cursor: pointer; margin-left: 20px; }
+
+        /* HERO */
+        .hero { text-align: center; padding: 100px 5%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80'); background-size: cover; border-bottom: 1px solid #333; }
+        .hero h1 { color: var(--gold); font-size: 3.5rem; font-weight: 900; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #ccc; }
+
+        /* POURQUOI NOUS CHOISIR */
+        .features { display: flex; justify-content: space-around; padding: 50px 5%; background: var(--grey); text-align: center; flex-wrap: wrap; gap: 20px; }
+        .feat-box { flex: 1; min-width: 250px; padding: 20px; }
+        .feat-box i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; }
+        .feat-box h3 { color: var(--white); margin-bottom: 10px; }
+
+        /* PACKS VIP STRIPE */
+        .pricing { padding: 80px 5%; text-align: center; }
+        .pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .pack { background: var(--grey); border: 1px solid #333; padding: 40px; border-radius: 15px; width: 300px; transition: 0.3s; position: relative; }
+        .pack.popular { border: 2px solid var(--gold); transform: scale(1.05); }
+        .pack h2 { color: var(--gold); }
+        .pack .price { font-size: 2.5rem; font-weight: 900; margin: 20px 0; }
+        .pack ul { list-style: none; padding: 0; margin: 20px 0; text-align: left; color: #bbb; }
+        .pack ul li { margin-bottom: 10px; }
+        .pack ul li i { color: var(--gold); margin-right: 10px; }
         
-        nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
-        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; cursor: pointer; }
+        .btn-pay { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: 900; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+        .btn-pay:hover { background: white; transform: translateY(-3px); }
 
-        .hero { text-align: center; padding: 80px 5%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80'); background-size: cover; }
-        .hero h1 { color: var(--gold); font-size: 3rem; font-weight: 900; }
-
+        /* DASHBOARD & CATÉGORIES */
         .categories-container { display: flex; justify-content: center; gap: 15px; padding: 40px 5%; flex-wrap: wrap; }
-        .cat-box { padding: 20px 30px; border-radius: 10px; font-weight: 900; cursor: pointer; transition: 0.3s; border: 2px solid transparent; text-transform: uppercase; }
-        .cat-safe { border-color: var(--safe); color: var(--safe); }
-        .cat-montante { border-color: var(--montante); color: var(--montante); }
-        .cat-fun { border-color: var(--fun); color: var(--fun); }
+        .cat-box { padding: 15px 25px; border-radius: 5px; font-weight: 900; cursor: pointer; transition: 0.3s; border: 2px solid #333; text-transform: uppercase; font-size: 0.8rem; }
+        .cat-box:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.1); }
+        .cat-active { border-color: var(--gold) !important; background: var(--gold) !important; color: black !important; }
 
-        #dashboard { display: none; padding: 50px 5%; }
-        .prono-card { background: var(--grey); border-left: 5px solid var(--gold); padding: 25px; margin: 20px auto; max-width: 700px; border-radius: 10px; }
-        
-        .btn-main { padding: 15px 30px; background: var(--gold); border: none; color: black; font-weight: 900; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .btn-main:hover { background: white; }
-        
-        .lock-screen { text-align: center; padding: 50px; background: #111; border-radius: 20px; margin: 40px auto; max-width: 500px; border: 1px dashed var(--gold); }
+        #dashboard { display: none; padding: 50px 5%; border-top: 2px solid var(--gold); background: #080808; }
+        .prono-card { background: var(--grey); border-left: 5px solid var(--gold); padding: 25px; margin: 20px auto; max-width: 700px; border-radius: 10px; position: relative; }
+        .badge-sport { position: absolute; top: 10px; right: 20px; font-size: 0.7rem; background: #333; padding: 5px 10px; border-radius: 20px; text-transform: uppercase; }
+
+        .lock-screen { text-align: center; padding: 60px 5%; background: #111; border-radius: 20px; margin: 40px auto; max-width: 600px; border: 1px dashed var(--gold); }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.8rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo" onclick="location.reload()">Elite Pronos</div>
-    <nav>
-        <ul>
-            <li><a onclick="location.reload()">ACCUEIL</a></li>
-            <li><div id="auth-status"></div></li>
-        </ul>
-    </nav>
+    <div id="auth-status"></div>
 </header>
 
-<main id="mainContent">
-    <section class="hero">
-        <h1>L'ESPACE DU PATRON</h1>
-        <p>Connectez-vous pour accéder aux pronostics sécurisés.</p>
-        <div id="login-trigger">
-            <button class="btn-main" onclick="netlifyIdentity.open('login')">SE CONNECTER / S'INSCRIRE</button>
-        </div>
-    </section>
+<main>
+    <div id="public-view">
+        <section class="hero">
+            <h1>REJOIGNEZ L'ÉLITE</h1>
+            <p>Le seul canal qui transforme vos paris en investissements long terme.</p>
+            <br>
+            <button class="btn-pay" style="width:auto; padding: 15px 50px;" onclick="netlifyIdentity.open('signup')">CRÉER MON COMPTE GRATUIT</button>
+        </section>
 
-    <div class="categories-container">
-        <div class="cat-box cat-safe" onclick="checkAccess('safe')">Section Safe</div>
-        <div class="cat-box cat-montante" onclick="checkAccess('montante')">Section Montante</div>
-        <div class="cat-box cat-fun" onclick="checkAccess('fun')">Section Fun</div>
-    </div>
-
-    <div id="loggedOutView" class="lock-screen">
-        <i class="fas fa-lock" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
-        <h3>Contenu Verrouillé</h3>
-        <p>Veuillez vous connecter et confirmer votre email pour voir les pronos.</p>
-    </div>
-
-    <div id="dashboard">
-        <h2 id="dashTitle" style="text-align:center; color:var(--gold);">TABLEAU DE BORD</h2>
-        
-        <div id="pronoContainer">
-            <div class="prono-card" data-sport="tennis" data-type="fun">
-                <span style="color:var(--fun)">[FUN]</span> TENNIS
-                <h3>Djokovic vs Nadal</h3>
-                <p>Prono : <strong>Victoire Nadal @2.10</strong></p>
+        <section class="features">
+            <div class="feat-box">
+                <i class="fas fa-chart-line"></i>
+                <h3>+85% de Réussite</h3>
+                <p>Des analyses basées sur des algorithmes et une expertise de terrain.</p>
             </div>
+            <div class="feat-box">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Gestion Sécurisée</h3>
+                <p>On ne mise jamais tout. On protège votre capital avant tout.</p>
+            </div>
+            <div class="feat-box">
+                <i class="fas fa-headset"></i>
+                <h3>Support 24/7</h3>
+                <p>Une question ? Le Patron vous répond directement sur Telegram.</p>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <h2>NOS ABONNEMENTS VIP</h2>
+            <p style="color:#888">Accès immédiat après paiement par Carte, Apple Pay ou Google Pay.</p>
+            <div class="pricing-grid">
+                <div class="pack">
+                    <h2>ROOKIE</h2>
+                    <div class="price">19.99€<span>/mois</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Accès Section SAFE</li>
+                        <li><i class="fas fa-check"></i> Gestion de Bankroll</li>
+                        <li><i class="fas fa-check"></i> Support par mail</li>
+                    </ul>
+                    <button class="btn-pay" onclick="window.location.href='TON_LIEN_STRIPE_ICI'">CHOISIR CE PACK</button>
+                </div>
+                <div class="pack popular">
+                    <div style="background:var(--gold); color:black; font-size:0.7rem; font-weight:900; padding:5px; position:absolute; top:0; left:50%; transform:translateX(-50%); border-radius:0 0 10px 10px; width:60%;">RECOMMANDÉ</div>
+                    <h2>ELITE</h2>
+                    <div class="price">39.99€<span>/mois</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Section SAFE + MONTANTE</li>
+                        <li><i class="fas fa-check"></i> Analyses Vidéo</li>
+                        <li><i class="fas fa-check"></i> Canal Privé Telegram</li>
+                    </ul>
+                    <button class="btn-pay" onclick="window.location.href='TON_LIEN_STRIPE_ICI'">CHOISIR CE PACK</button>
+                </div>
+                <div class="pack">
+                    <h2>LEGEND</h2>
+                    <div class="price">99.99€<span>/an</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> TOUTES LES SECTIONS</li>
+                        <li><i class="fas fa-check"></i> Coaching Privé 1h/mois</li>
+                        <li><i class="fas fa-check"></i> Alertes "Grosse Mise"</li>
+                    </ul>
+                    <button class="btn-pay" onclick="window.location.href='TON_LIEN_STRIPE_ICI'">CHOISIR CE PACK</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="private-view" style="display:none;">
+        <div style="text-align:center; padding-top:40px;">
+            <h2 style="color:var(--gold); margin-bottom:5px;">BIENVENUE DANS L'ESPACE VIP</h2>
+            <p style="color:#888;">Sélectionnez votre sport pour voir les pronos du jour</p>
         </div>
 
-        <div id="noPronoMessage" style="display:none; text-align:center;">Aucun prono ici.</div>
-        
-        <center style="margin-top:40px;">
-            <button onclick="location.reload()" class="btn-main" style="background:none; border:1px solid white; color:white;">RETOUR</button>
-        </center>
+        <div class="categories-container">
+            <div class="cat-box" onclick="filterProno('safe', this)">Safe 🟢</div>
+            <div class="cat-box" onclick="filterProno('montante', this)">Montante 🔵</div>
+            <div class="cat-box" onclick="filterProno('fun', this)">Fun 🟠</div>
+            <div class="cat-box" onclick="filterProno('foot', this)">Football ⚽</div>
+            <div class="cat-box" onclick="filterProno('tennis', this)">Tennis 🎾</div>
+            <div class="cat-box" onclick="filterProno('basket', this)">Basket 🏀</div>
+            <div class="cat-box" onclick="filterProno('f1', this)">F1/MotoGP 🏎️</div>
+        </div>
+
+        <div id="dashboard">
+            <div id="pronoContainer">
+                <div class="prono-card" data-type="foot safe">
+                    <div class="badge-sport">Football - Ligue 1</div>
+                    <p style="color:var(--safe); font-weight:900;">[SAFE DU JOUR]</p>
+                    <h3>PSG vs Marseille</h3>
+                    <p>Prono : <strong>Victoire PSG @1.55</strong></p>
+                    <p style="font-size:0.8rem; color:#888;">Confiance : 9/10</p>
+                </div>
+
+                <div class="prono-card" data-type="tennis fun">
+                    <div class="badge-sport">Tennis - ATP</div>
+                    <p style="color:var(--fun); font-weight:900;">[GROSSE CÔTE]</p>
+                    <h3>Alcaraz vs Sinner</h3>
+                    <p>Prono : <strong>Sinner gagne 1 set @2.10</strong></p>
+                </div>
+
+                <div class="prono-card" data-type="f1 montante">
+                    <div class="badge-sport">F1 - GP Monaco</div>
+                    <p style="color:var(--montante); font-weight:900;">[MONTANTE ETAPE 2]</p>
+                    <h3>Vainqueur Course</h3>
+                    <p>Prono : <strong>Max Verstappen @1.40</strong></p>
+                </div>
+            </div>
+            <div id="noProno" style="display:none; text-align:center; padding:40px;">Aucun pronostic disponible dans cette catégorie pour le moment.</div>
+        </div>
+    </div>
+
+    <div id="locked" class="lock-screen" style="display:none;">
+        <i class="fas fa-unlock-alt" style="font-size:3rem; color:var(--gold); margin-bottom:20px;"></i>
+        <h3>ACCÈS MEMBRE VALIDE</h3>
+        <p>Sélectionnez une catégorie ci-dessus pour commencer.</p>
     </div>
 </main>
 
+<footer>
+    &copy; 2026 ELITE PRONOS - Ne pariez que ce que vous pouvez vous permettre de perdre. 18+
+</footer>
+
 <script>
-    // Initialisation Netlify Identity
-    netlifyIdentity.on('init', user => {
-        updateUI(user);
-    });
+    netlifyIdentity.on('init', user => updateAccess(user));
+    netlifyIdentity.on('login', user => { updateAccess(user); netlifyIdentity.close(); });
+    netlifyIdentity.on('logout', () => updateAccess(null));
 
-    netlifyIdentity.on('login', user => {
-        updateUI(user);
-        netlifyIdentity.close();
-    });
-
-    netlifyIdentity.on('logout', () => {
-        updateUI(null);
-        location.reload();
-    });
-
-    function updateUI(user) {
+    function updateAccess(user) {
         const authStatus = document.getElementById('auth-status');
-        const loginTrigger = document.getElementById('login-trigger');
-        const loggedOutView = document.getElementById('loggedOutView');
+        const publicView = document.getElementById('public-view');
+        const privateView = document.getElementById('private-view');
+        const locked = document.getElementById('locked');
 
         if (user) {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold)">DECONNEXION (${user.user_metadata.full_name || 'Membre'})</a>`;
-            loginTrigger.style.display = 'none';
-            loggedOutView.style.display = 'none';
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold)">DECONNEXION</a>`;
+            publicView.style.display = 'none';
+            privateView.style.display = 'block';
+            locked.style.display = 'block';
         } else {
             authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')">CONNEXION</a>`;
-            loginTrigger.style.display = 'block';
-            loggedOutView.style.display = 'block';
-            document.getElementById('dashboard').style.display = 'none';
+            publicView.style.display = 'block';
+            privateView.style.display = 'none';
+            locked.style.display = 'none';
         }
     }
 
-    function checkAccess(type) {
-        const user = netlifyIdentity.currentUser();
-        if (!user) {
-            alert("🔒 Vous devez être connecté et avoir confirmé votre email pour accéder à cette section.");
-            netlifyIdentity.open('login');
-            return;
-        }
-        showDashboard(type);
-    }
-
-    function showDashboard(type) {
-        document.getElementById('loggedOutView').style.display = 'none';
+    function filterProno(category, element) {
+        document.getElementById('locked').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
-        document.getElementById('dashTitle').innerText = "SECTION " + type.toUpperCase();
+        
+        // UI: Bouton actif
+        document.querySelectorAll('.cat-box').forEach(b => b.classList.remove('cat-active'));
+        element.classList.add('cat-active');
 
-        let found = 0;
+        // Filtrage
+        let count = 0;
         document.querySelectorAll('.prono-card').forEach(card => {
-            if (card.getAttribute('data-type') === type) {
+            if (card.getAttribute('data-type').includes(category)) {
                 card.style.display = 'block';
-                found++;
+                count++;
             } else {
                 card.style.display = 'none';
             }
         });
-        document.getElementById('noPronoMessage').style.display = (found === 0) ? 'block' : 'none';
-        window.scrollTo(0, document.getElementById('dashboard').offsetTop - 100);
+        document.getElementById('noProno').style.display = (count === 0) ? 'block' : 'none';
     }
 </script>
 
