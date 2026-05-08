@@ -35,37 +35,70 @@
         .cat-card.fun { border-color: var(--fun); color: var(--fun); }
         .cat-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); }
 
-        /* SECTION POURQUOI NOUS SUIVRE */
+        /* POURQUOI NOUS SUIVRE */
         .why-us { padding: 60px 10%; text-align: center; background: #0a0a0a; border-radius: 20px; margin: 40px 5%; }
-        .why-us h2 { color: var(--gold); font-weight: 900; margin-bottom: 30px; }
+        .why-us h2 { color: var(--gold); font-weight: 900; margin-bottom: 30px; text-transform: uppercase; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .feature-item i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
-        .feature-item p { font-size: 0.9rem; color: #ccc; }
+        .feature-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .feature-item p { font-size: 0.9rem; color: #ccc; line-height: 1.5; }
 
         /* DASHBOARD */
         #dashboard { display: none; padding: 30px 5%; }
         .prono-card { background: var(--grey); border-left: 5px solid var(--gold); padding: 25px; margin: 15px auto; max-width: 700px; border-radius: 10px; position: relative; }
         .badge-tag { position: absolute; top: 10px; right: 20px; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold); padding: 3px 10px; border-radius: 10px; text-transform: uppercase; }
 
-        /* PACKS */
+        /* PACKS - FIX FLEXBOX & RESPONSIVE */
         .waiting-screen { text-align: center; padding: 40px 5%; max-width: 1000px; margin: 0 auto; }
         .packs-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px; align-items: stretch; }
-        .pack-card { background: var(--grey); border: 1px solid var(--gold); border-radius: 15px; width: 300px; padding: 30px 20px; text-align: center; position: relative; display: flex; flex-direction: column; box-sizing: border-box; }
-        .pack-card .price { font-size: 2rem; color: var(--gold); font-weight: 900; margin-bottom: 20px; }
-        .pack-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 25px; flex-grow: 1; }
-        .pack-card ul li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: #ccc; }
         
-        .btn-subscribe { background: var(--gold); color: black; border: none; padding: 12px 20px; border-radius: 25px; font-weight: 900; text-transform: uppercase; cursor: pointer; width: 100%; max-width: 240px; margin: 0 auto; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .pack-card { 
+            background: var(--grey); 
+            border: 1px solid var(--gold); 
+            border-radius: 15px; 
+            width: 310px; 
+            padding: 35px 25px; 
+            text-align: center; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            box-sizing: border-box; 
+        }
+        
+        .pack-card h3 { color: var(--white); font-weight: 900; font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .pack-card .price { font-size: 2.4rem; color: var(--gold); font-weight: 900; margin-bottom: 25px; }
+        
+        .pack-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; flex-grow: 1; }
+        .pack-card ul li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; color: #ddd; }
+        .pack-card ul li i { color: var(--gold); font-size: 0.8rem; }
+        
+        .btn-subscribe { 
+            background: var(--gold); 
+            color: black; 
+            border: none; 
+            padding: 14px 20px; 
+            border-radius: 30px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            width: 100%; 
+            max-width: 230px; 
+            margin: 0 auto; 
+            transition: 0.3s; 
+            text-decoration: none; 
+            display: inline-block; 
+        }
         .btn-subscribe:hover { transform: scale(1.05); background: white; }
 
-        /* BULLE TELEGRAM */
-        .tg-float { position: fixed; bottom: 30px; right: 30px; background: #26A5E4; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; transition: 0.3s; text-decoration: none; }
-        .tg-float:hover { transform: scale(1.1); background: #31b9fd; }
+        /* BULLE TELEGRAM FLOTTANTE */
+        .tg-float { position: fixed; bottom: 30px; right: 30px; background: #26A5E4; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 28px; box-shadow: 0 6px 20px rgba(0,0,0,0.6); z-index: 2000; transition: 0.3s; text-decoration: none; }
+        .tg-float:hover { transform: scale(1.15); background: #31b9fd; }
 
-        /* DISCLAIMER & FOOTER */
-        .disclaimer { padding: 40px 10%; background: #050505; color: #555; font-size: 0.7rem; text-align: center; line-height: 1.6; border-top: 1px solid #111; }
-        .disclaimer b { color: #888; }
-        footer { text-align: center; padding: 20px; color: #333; font-size: 0.75rem; }
+        /* DISCLAIMER ET PRÉVENTION */
+        .disclaimer-section { padding: 50px 10%; background: #050505; color: #666; font-size: 0.75rem; text-align: center; line-height: 1.7; border-top: 1px solid #111; }
+        .disclaimer-section b { color: #aaa; }
+        .disclaimer-section .warning-phone { color: var(--gold); font-weight: 700; font-size: 0.85rem; display: block; margin: 10px 0; }
+        footer { text-align: center; padding: 25px; color: #444; font-size: 0.75rem; background: #050505; border-top: 1px solid #0a0a0a; }
     </style>
 </head>
 <body>
@@ -88,29 +121,29 @@
 </header>
 
 <main>
-    <div id="public-view" style="text-align:center; padding:80px 5%;">
-        <h1 style="font-size: 3rem; font-weight: 900; margin-bottom: 10px;">MOODA PRONOS</h1>
-        <p style="color: var(--gold); letter-spacing: 2px;">L'EXPERTISE AU SERVICE DE VOS GAINS</p><br>
+    <div id="public-view" style="text-align:center; padding:90px 5%;">
+        <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 10px; letter-spacing: -1px;">MOODA PRONOS</h1>
+        <p style="color: var(--gold); letter-spacing: 4px; font-weight: 700; text-transform: uppercase;">L'expertise au service de vos gains</p><br>
         
-        <button onclick="netlifyIdentity.open('login')" class="btn-subscribe" style="width:auto; padding:15px 50px; margin-bottom: 60px;">ACCÉDER À L'ESPACE VIP</button>
+        <button onclick="netlifyIdentity.open('login')" class="btn-subscribe" style="width:auto; padding:18px 60px; margin-bottom: 70px; font-size: 1rem;">ACCÉDER À L'ESPACE VIP</button>
 
         <section class="why-us">
-            <h2>POURQUOI NOUS SUIVRE ?</h2>
+            <h2>Pourquoi nous faire confiance ?</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Analyse Précise</h3>
-                    <p>Chaque pronostic est étudié pendant plusieurs heures par nos experts avant d'être publié.</p>
+                    <i class="fas fa-microscope"></i>
+                    <h3>Analyses Poussées</h3>
+                    <p>Chaque pari est décortiqué selon des algorithmes précis et une connaissance terrain des championnats.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Transparence</h3>
-                    <p>Nous affichons nos bilans réels. Pas de fausses promesses, uniquement de la gestion de bankroll.</p>
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Gestion de Bankroll</h3>
+                    <p>Nous ne nous contentons pas de donner des pronos, nous vous apprenons à ne jamais tout perdre.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Réactivité</h3>
-                    <p>Soyez alerté instantanément de nos opportunités "Live" et des meilleures côtes du marché.</p>
+                    <i class="fas fa-history"></i>
+                    <h3>Bilans Transparents</h3>
+                    <p>Tous nos résultats sont archivés. Pas de modification, pas de mensonge. La vérité des chiffres.</p>
                 </div>
             </div>
         </section>
@@ -118,62 +151,61 @@
 
     <div id="private-view" style="display:none;">
         <div class="main-categories">
-            <div class="cat-card safe" onclick="filterProno('safe')"><i class="fas fa-shield-check"></i>SAFE 🟢</div>
-            <div class="cat-card montante" onclick="filterProno('montante')"><i class="fas fa-chart-line-up"></i>MONTANTE 🔵</div>
-            <div class="cat-card fun" onclick="filterProno('fun')"><i class="fas fa-bolt"></i>FUN 🟠</div>
+            <div class="cat-card safe" onclick="filterProno('safe')"><i class="fas fa-shield-check"></i> SAFE 🟢</div>
+            <div class="cat-card montante" onclick="filterProno('montante')"><i class="fas fa-chart-line-up"></i> MONTANTE 🔵</div>
+            <div class="cat-card fun" onclick="filterProno('fun')"><i class="fas fa-bolt"></i> FUN 🟠</div>
         </div>
 
         <div id="dashboard">
             <h2 id="current-cat-title" style="text-align:center; color:var(--gold); margin-bottom:30px; text-transform:uppercase;"></h2>
-            <div id="pronoContainer">
-                <div class="prono-card" data-type="foot safe">
-                    <div class="badge-tag">Football</div>
-                    <h3>Ligue 1 : PSG - Marseille</h3>
-                    <p>Prono : <strong>Victoire PSG @1.55</strong></p>
-                </div>
-            </div>
-            <div id="noProno" style="display:none; text-align:center; padding:50px; color:#555;">Bientôt de nouveaux pronos ici...</div>
+            <div id="pronoContainer"></div>
+            <div id="noProno" style="display:none; text-align:center; padding:50px; color:#555;">Aucun pronostic disponible dans cette section pour le moment...</div>
         </div>
 
         <div id="waiting-msg" class="waiting-screen">
-            <h2 style="font-weight:900; color: var(--gold);">VOTRE ACCÈS VIP</h2>
-            <p style="color:#888; margin-bottom:40px;">Choisissez votre formule pour débloquer tous les pronostics :</p>
+            <h2 style="font-weight:900; color: var(--gold); margin-bottom:15px;">PRÊT À GAGNER ?</h2>
+            <p style="color:#999; margin-bottom:45px;">Choisissez la formule qui correspond à votre profil de parieur :</p>
 
             <div class="packs-container">
                 <div class="pack-card">
                     <h3>PACK TENNIS</h3>
                     <div class="price">12.90 €</div>
                     <ul>
-                        <li><i class="fas fa-check"></i> Accès VIP Tennis 🎾</li>
-                        <li><i class="fas fa-check"></i> Montante Exclusive 📈</li>
-                        <li><i class="fas fa-check"></i> Canal Telegram Restreint 🔒</li>
+                        <li><i class="fas fa-check-circle"></i> Tennis 🎾</li>
+                        <li><i class="fas fa-check-circle"></i> Montante 📈</li>
+                        <li><i class="fas fa-check-circle"></i> Safe 🟢</li>
+                        <li><i class="fas fa-check-circle"></i> Fun 🟠</li>
+                        <li><i class="fas fa-lock"></i> Accès au canal restreint Tennis 🔒</li>
                     </ul>
-                    <a href="https://buy.stripe.com/test_cNi9ASejj9vp1q389a7IY00" class="btn-subscribe">DÉBLOQUER</a>
+                    <a href="https://buy.stripe.com/test_cNi9ASejj9vp1q389a7IY00" class="btn-subscribe">S'INSCRIRE</a>
                 </div>
 
                 <div class="pack-card" style="border-width: 2px;">
-                    <div style="background:var(--gold); color:black; font-size:0.7rem; font-weight:900; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:2px 15px; border-radius:10px;">TOP VENTE</div>
-                    <h3>PACK FULL VIP</h3>
+                    <div style="background:var(--gold); color:black; font-size:0.75rem; font-weight:900; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:3px 18px; border-radius:10px;">RECOMMANDÉ</div>
+                    <h3>PACK FULL</h3>
                     <div class="price">26.90 €</div>
                     <ul>
-                        <li><i class="fas fa-check"></i> Tous les Sports (Foot, Tennis, US) ⚽</li>
-                        <li><i class="fas fa-check"></i> Toutes les Stratégies (Safe/Fun) 🟢</li>
-                        <li><i class="fas fa-check"></i> Support Prioritaire 7j/7 🎧</li>
+                        <li><i class="fas fa-check-circle"></i> Tout les sports ⚽🎾🏀</li>
+                        <li><i class="fas fa-check-circle"></i> Montante 📈</li>
+                        <li><i class="fas fa-check-circle"></i> Safe 🟢</li>
+                        <li><i class="fas fa-check-circle"></i> Fun 🟠</li>
+                        <li><i class="fas fa-lock"></i> Acces au canal restreint 🔒</li>
                     </ul>
-                    <a href="https://buy.stripe.com/test_cNi6oG1wx22X8Sv1KM7IY01" class="btn-subscribe">DÉBLOQUER</a>
+                    <a href="https://buy.stripe.com/test_cNi6oG1wx22X8Sv1KM7IY01" class="btn-subscribe">S'INSCRIRE</a>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<a href="https://t.me/ton_lien_telegram" class="tg-float" target="_blank">
+<a href="https://t.me/+5w-EaAuH1D5kYjE0" class="tg-float" target="_blank">
     <i class="fab fa-telegram-plane"></i>
 </a>
 
-<section class="disclaimer">
-    <p><b>AVERTISSEMENT LÉGAL :</b> Les jeux d'argent et de hasard sont interdits aux mineurs. Mooda Pronos n'est pas un site de paris en ligne mais un service de conseil en pronostics sportifs. Nous ne garantissons aucun gain financier.</p>
-    <p><b>JOUER COMPORTE DES RISQUES :</b> Endettement, isolement, dépendance. Pour être aidé, appelez le <b>09 74 75 13 13</b> (appel non surtaxé). Ne misez jamais d'argent que vous n'êtes pas prêt à perdre. L'analyse sportive reste soumise aux aléas du sport.</p>
+<section class="disclaimer-section">
+    <p><b>MISE EN GARDE :</b> Les jeux d'argent et de hasard sont strictement interdits aux mineurs (18+). Jouer comporte des risques : endettement, isolement, dépendance.</p>
+    <span class="warning-phone">BESOIN D'AIDE ? APPELEZ LE 09 74 75 13 13 (APPEL NON SURTAXÉ)</span>
+    <p>Mooda Pronos est un service d'information et de conseil en analyses sportives. Nous ne sommes pas un opérateur de paris. Les résultats passés ne préjugent pas des gains futurs. Ne misez jamais de l'argent dont vous avez besoin pour vivre.</p>
 </section>
 
 <footer>&copy; 2026 MOODA PRONOS - Tous droits réservés</footer>
@@ -190,12 +222,12 @@
         const sportsMenu = document.getElementById('sports-menu');
 
         if (user) {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem; border:1px solid var(--gold); padding:5px 12px; border-radius:5px;">DÉCONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem; border:1px solid var(--gold); padding:6px 15px; border-radius:5px; text-transform:uppercase;">Déconnexion</a>`;
             publicView.style.display = 'none';
             privateView.style.display = 'block';
             sportsMenu.style.display = 'block';
         } else {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:8px 15px; border-radius:5px; font-weight:900; font-size:0.8rem; cursor:pointer;">CONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:10px 20px; border-radius:5px; font-weight:900; font-size:0.85rem; cursor:pointer; text-transform:uppercase;">Connexion</a>`;
             publicView.style.display = 'block';
             privateView.style.display = 'none';
             sportsMenu.style.display = 'none';
@@ -205,7 +237,7 @@
     function filterProno(category) {
         document.getElementById('waiting-msg').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
-        document.getElementById('current-cat-title').innerText = "Catégorie : " + category;
+        document.getElementById('current-cat-title').innerText = "ESPACE " + category;
         let count = 0;
         document.querySelectorAll('.prono-card').forEach(card => {
             if (card.getAttribute('data-type').includes(category)) {
