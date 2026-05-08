@@ -40,17 +40,47 @@
         .prono-card { background: var(--grey); border-left: 5px solid var(--gold); padding: 25px; margin: 15px auto; max-width: 700px; border-radius: 10px; position: relative; }
         .badge-tag { position: absolute; top: 10px; right: 20px; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold); padding: 3px 10px; border-radius: 10px; text-transform: uppercase; }
 
-        /* ÉCRAN OFFRES (PACKS) */
-        .waiting-screen { text-align: center; padding: 40px 5%; max-width: 900px; margin: 0 auto; }
-        .packs-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .pack-card { background: var(--grey); border: 1px solid var(--gold); border-radius: 15px; width: 280px; padding: 30px 20px; text-align: center; position: relative; }
+        /* SECTION PACKS - FIX FLEXBOX */
+        .waiting-screen { text-align: center; padding: 40px 5%; max-width: 1000px; margin: 0 auto; }
+        .packs-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px; align-items: stretch; }
+        
+        .pack-card { 
+            background: var(--grey); 
+            border: 1px solid var(--gold); 
+            border-radius: 15px; 
+            width: 300px; 
+            padding: 30px 20px; 
+            text-align: center; 
+            position: relative; 
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box; /* Empêche le débordement horizontal */
+        }
+        
         .pack-card h3 { color: var(--white); font-weight: 900; font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
         .pack-card .price { font-size: 2rem; color: var(--gold); font-weight: 900; margin-bottom: 20px; }
-        .pack-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 25px; min-height: 180px; }
+        
+        .pack-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 25px; flex-grow: 1; }
         .pack-card ul li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: #ccc; }
         .pack-card ul li i { color: var(--gold); font-size: 0.8rem; }
         
-        .btn-subscribe { background: var(--gold); color: black; border: none; padding: 12px 30px; border-radius: 25px; font-weight: 900; text-transform: uppercase; cursor: pointer; width: 100%; transition: 0.3s; text-decoration: none; display: inline-block; }
+        /* FIX BOUTON TROP LONG */
+        .btn-subscribe { 
+            background: var(--gold); 
+            color: black; 
+            border: none; 
+            padding: 12px 20px; 
+            border-radius: 25px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            width: 100%; 
+            max-width: 240px; /* Limite la largeur pour ne pas toucher l'autre pack */
+            margin: 0 auto; /* Centre le bouton */
+            transition: 0.3s; 
+            text-decoration: none;
+            display: inline-block;
+        }
         .btn-subscribe:hover { transform: scale(1.05); background: white; }
 
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.75rem; border-top: 1px solid #111; margin-top: 50px; }
@@ -114,7 +144,7 @@
                     <a href="https://buy.stripe.com/test_cNi9ASejj9vp1q389a7IY00" class="btn-subscribe">S'inscrire</a>
                 </div>
 
-                <div class="pack-card" style="border-width: 3px;">
+                <div class="pack-card" style="border-width: 2px;">
                     <div style="background:var(--gold); color:black; font-size:0.7rem; font-weight:900; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:2px 15px; border-radius:10px;">TOP VENTE</div>
                     <h3>PACK FULL</h3>
                     <div class="price">26.90 €</div>
@@ -125,7 +155,7 @@
                         <li><i class="fas fa-sparkle"></i> Montante 📈</li>
                         <li><i class="fas fa-sparkle"></i> Accès au canal restreint 🔒</li>
                     </ul>
-                    <a href="METS_TON_LIEN_PACK_FULL_ICI" class="btn-subscribe">S'inscrire</a>
+                    <a href="#" class="btn-subscribe">S'inscrire</a>
                 </div>
             </div>
         </div>
