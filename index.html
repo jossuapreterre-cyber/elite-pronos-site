@@ -152,12 +152,12 @@
         const sportsMenu = document.getElementById('sports-menu');
 
         if (user) {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem; border:1px solid var(--gold); padding:5px 12px; border-radius:5px;">DÉCONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem;">DÉCONNEXION</a>`;
             publicView.style.display = 'none';
             privateView.style.display = 'block';
             sportsMenu.style.display = 'block';
         } else {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:8px 15px; border-radius:5px; font-weight:900; font-size:0.8rem; cursor:pointer;">CONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:8px 15px; border-radius:5px; font-weight:900; font-size:0.8rem;">CONNEXION</a>`;
             publicView.style.display = 'block';
             privateView.style.display = 'none';
             sportsMenu.style.display = 'none';
@@ -178,7 +178,6 @@
             }
         });
         document.getElementById('noProno').style.display = (count === 0) ? 'block' : 'none';
-        window.scrollTo({ top: document.getElementById('dashboard').offsetTop - 80, behavior: 'smooth' });
     }
 </script>
 </body>
