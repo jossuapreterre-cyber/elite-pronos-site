@@ -23,7 +23,7 @@
         .dropdown { position: relative; display: inline-block; }
         .dropdown-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 180px; z-index: 10; border: 1px solid var(--gold); right: 0; top: 100%; }
-        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.8rem; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.8rem; cursor: pointer; }
         .dropdown-content a:hover { background-color: var(--gold); color: black; }
         .dropdown:hover .dropdown-content { display: block; }
 
@@ -97,4 +97,89 @@
 
         <div id="waiting-msg" class="waiting-screen">
             <i class="fas fa-unlock-alt" style="font-size:2.5rem; color:var(--gold); margin-bottom:15px;"></i>
-            <h2 style="font-weight:900;">
+            <h2 style="font-weight:900;">ACCÈS MEMBRE VALIDE</h2>
+            <p style="color:#888; margin-bottom:40px;">Sélectionnez une catégorie en haut ou débloquez un accès complet :</p>
+
+            <div class="packs-container">
+                <div class="pack-card">
+                    <h3>PACK TENNIS</h3>
+                    <div class="price">12.90 €</div>
+                    <ul>
+                        <li><i class="fas fa-sparkle"></i> Tennis 🎾</li>
+                        <li><i class="fas fa-sparkle"></i> Montante 📈</li>
+                        <li><i class="fas fa-sparkle"></i> Fun 🟠</li>
+                        <li><i class="fas fa-sparkle"></i> Safe 🟢</li>
+                        <li><i class="fas fa-sparkle"></i> Accès au canal restreint 🔒</li>
+                    </ul>
+                    <button class="btn-subscribe" onclick="window.location.href='TON_LIEN_STRIPE_TENNIS'">S'inscrire</button>
+                </div>
+
+                <div class="pack-card" style="border-width: 3px;">
+                    <div style="background:var(--gold); color:black; font-size:0.7rem; font-weight:900; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:2px 15px; border-radius:10px;">TOP VENTE</div>
+                    <h3>PACK FULL</h3>
+                    <div class="price">26.90 €</div>
+                    <ul>
+                        <li><i class="fas fa-sparkle"></i> Football ⚽</li>
+                        <li><i class="fas fa-sparkle"></i> Tennis 🎾</li>
+                        <li><i class="fas fa-sparkle"></i> Sport US 🏀</li>
+                        <li><i class="fas fa-sparkle"></i> Montante 📈</li>
+                        <li><i class="fas fa-sparkle"></i> Accès au canal restreint 🔒</li>
+                    </ul>
+                    <button class="btn-subscribe" onclick="window.location.href='TON_LIEN_STRIPE_FULL'">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="public-view" style="text-align:center; padding:100px 5%;">
+        <h1>ELITE PRONOS</h1>
+        <p>Connectez-vous pour voir vos offres personnalisées.</p><br>
+        <button onclick="netlifyIdentity.open('login')" class="btn-subscribe" style="width:auto; padding:15px 50px;">SE CONNECTER</button>
+    </div>
+</main>
+
+<footer>&copy; 2026 ELITE PRONOS - 18+</footer>
+
+<script>
+    netlifyIdentity.on('init', user => updateUI(user));
+    netlifyIdentity.on('login', user => { updateUI(user); netlifyIdentity.close(); });
+    netlifyIdentity.on('logout', () => { updateUI(null); location.reload(); });
+
+    function updateUI(user) {
+        const authStatus = document.getElementById('auth-status');
+        const publicView = document.getElementById('public-view');
+        const privateView = document.getElementById('private-view');
+        const sportsMenu = document.getElementById('sports-menu');
+
+        if (user) {
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem; border:1px solid var(--gold); padding:5px 12px; border-radius:5px;">DÉCONNEXION</a>`;
+            publicView.style.display = 'none';
+            privateView.style.display = 'block';
+            sportsMenu.style.display = 'block';
+        } else {
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:8px 15px; border-radius:5px; font-weight:900; font-size:0.8rem; cursor:pointer;">CONNEXION</a>`;
+            publicView.style.display = 'block';
+            privateView.style.display = 'none';
+            sportsMenu.style.display = 'none';
+        }
+    }
+
+    function filterProno(category) {
+        document.getElementById('waiting-msg').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('current-cat-title').innerText = "SECTION " + category;
+        let count = 0;
+        document.querySelectorAll('.prono-card').forEach(card => {
+            if (card.getAttribute('data-type').includes(category)) {
+                card.style.display = 'block';
+                count++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        document.getElementById('noProno').style.display = (count === 0) ? 'block' : 'none';
+        window.scrollTo({ top: document.getElementById('dashboard').offsetTop - 80, behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>
