@@ -17,39 +17,41 @@
         /* HEADER */
         header { background: rgba(0,0,0,0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; cursor: pointer; }
-        
         .nav-right { display: flex; align-items: center; gap: 25px; }
 
-        /* MENU DÉROULANT SPORTS */
+        /* DROPDOWN SPORTS */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-        .dropdown-btn:hover { color: var(--gold); }
-        
-        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); z-index: 10; border: 1px solid var(--gold); border-radius: 5px; right: 0; top: 100%; }
-        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.8rem; transition: 0.2s; }
+        .dropdown-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 180px; z-index: 10; border: 1px solid var(--gold); right: 0; top: 100%; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.8rem; }
         .dropdown-content a:hover { background-color: var(--gold); color: black; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* CATÉGORIES CENTRALES (VIP) */
-        .main-categories { display: flex; justify-content: center; gap: 25px; padding: 60px 5% 40px 5%; flex-wrap: wrap; }
-        .cat-card { width: 220px; padding: 35px 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: 0.4s; border: 2px solid transparent; text-transform: uppercase; font-weight: 900; }
-        .cat-card i { font-size: 2rem; margin-bottom: 15px; display: block; }
-        
+        /* MAIN CATEGORIES */
+        .main-categories { display: flex; justify-content: center; gap: 25px; padding: 50px 5% 20px 5%; flex-wrap: wrap; }
+        .cat-card { width: 180px; padding: 25px 15px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s; border: 2px solid transparent; text-transform: uppercase; font-weight: 900; font-size: 0.9rem; }
         .cat-card.safe { border-color: var(--safe); color: var(--safe); }
         .cat-card.montante { border-color: var(--montante); color: var(--montante); }
         .cat-card.fun { border-color: var(--fun); color: var(--fun); }
-        
-        .cat-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.05); cursor: pointer; }
-        .cat-active { background: rgba(255,255,255,0.1); border-width: 4px; }
+        .cat-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); }
 
-        /* DASHBOARD PRONOS */
-        #dashboard { display: none; padding: 30px 5%; animation: fadeIn 0.5s; }
+        /* DASHBOARD */
+        #dashboard { display: none; padding: 30px 5%; }
         .prono-card { background: var(--grey); border-left: 5px solid var(--gold); padding: 25px; margin: 15px auto; max-width: 700px; border-radius: 10px; position: relative; }
         .badge-tag { position: absolute; top: 10px; right: 20px; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold); padding: 3px 10px; border-radius: 10px; text-transform: uppercase; }
 
-        .lock-screen { text-align: center; padding: 80px 5%; color: #888; max-width: 600px; margin: 0 auto; border: 1px dashed #333; border-radius: 20px; }
+        /* ÉCRAN OFFRES (PACKS) */
+        .waiting-screen { text-align: center; padding: 40px 5%; max-width: 900px; margin: 0 auto; }
+        .packs-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .pack-card { background: var(--grey); border: 1px solid var(--gold); border-radius: 15px; width: 280px; padding: 30px 20px; text-align: center; position: relative; }
+        .pack-card h3 { color: var(--white); font-weight: 900; font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .pack-card .price { font-size: 2rem; color: var(--gold); font-weight: 900; margin-bottom: 20px; }
+        .pack-card ul { list-style: none; padding: 0; text-align: left; margin-bottom: 25px; }
+        .pack-card ul li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; color: #ccc; }
+        .pack-card ul li i { color: var(--gold); font-size: 0.8rem; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .btn-subscribe { background: var(--gold); color: black; border: none; padding: 12px 30px; border-radius: 25px; font-weight: 900; text-transform: uppercase; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-subscribe:hover { transform: scale(1.05); background: white; }
 
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.75rem; border-top: 1px solid #111; margin-top: 50px; }
     </style>
@@ -75,74 +77,68 @@
 
 <main>
     <div id="private-view" style="display:none;">
-        <div style="text-align:center; padding-top:40px;">
-            <h2 style="color:var(--gold); margin-bottom:5px; font-weight:900;">BIENVENUE DANS L'ESPACE VIP</h2>
-            <p style="color:#666;">Choisissez votre stratégie pour aujourd'hui</p>
-        </div>
-
         <div class="main-categories">
-            <div class="cat-card safe" onclick="filterProno('safe')">
-                <i class="fas fa-shield-check"></i>SAFE 🟢
-            </div>
-            <div class="cat-card montante" onclick="filterProno('montante')">
-                <i class="fas fa-chart-line-up"></i>MONTANTE 🔵
-            </div>
-            <div class="cat-card fun" onclick="filterProno('fun')">
-                <i class="fas fa-bolt"></i>FUN 🟠
-            </div>
+            <div class="cat-card safe" onclick="filterProno('safe')"><i class="fas fa-shield-check"></i>SAFE 🟢</div>
+            <div class="cat-card montante" onclick="filterProno('montante')"><i class="fas fa-chart-line-up"></i>MONTANTE 🔵</div>
+            <div class="cat-card fun" onclick="filterProno('fun')"><i class="fas fa-bolt"></i>FUN 🟠</div>
         </div>
 
         <div id="dashboard">
             <h2 id="current-cat-title" style="text-align:center; color:var(--gold); margin-bottom:30px; text-transform:uppercase;"></h2>
             <div id="pronoContainer">
-                
                 <div class="prono-card" data-type="foot safe">
                     <div class="badge-tag">Football</div>
                     <h3>Ligue 1 : PSG - Marseille</h3>
                     <p>Prono : <strong>Victoire PSG @1.55</strong></p>
                 </div>
-
-                <div class="prono-card" data-type="badminton fun">
-                    <div class="badge-tag">Badminton</div>
-                    <h3>Open de France</h3>
-                    <p>Prono : <strong>Axelsen gagne 2-0 @1.90</strong></p>
-                </div>
-
-                <div class="prono-card" data-type="pingpong montante">
-                    <div class="badge-tag">Tennis de Table</div>
-                    <h3>WTT Champions</h3>
-                    <p>Prono : <strong>Fan Zhendong @1.40</strong></p>
-                </div>
-
             </div>
-            <div id="noProno" style="display:none; text-align:center; padding:50px; color:#555;">
-                <i class="fas fa-clock" style="font-size:2rem; margin-bottom:10px;"></i><br>
-                Les analystes préparent les prochains pronos...
-            </div>
+            <div id="noProno" style="display:none; text-align:center; padding:50px; color:#555;">Bientôt de nouveaux pronos ici...</div>
         </div>
 
-        <div id="waiting-msg" class="lock-screen">
-            <i class="fas fa-unlock-alt" style="font-size:2.5rem; color:var(--gold); margin-bottom:20px;"></i>
-            <h3 style="color:white">ACCÈS MEMBRE VALIDE</h3>
-            <p>Cliquez sur une catégorie ou un sport pour afficher les résultats.</p>
+        <div id="waiting-msg" class="waiting-screen">
+            <i class="fas fa-unlock-alt" style="font-size:2.5rem; color:var(--gold); margin-bottom:15px;"></i>
+            <h2 style="font-weight:900;">ACCÈS MEMBRE VALIDE</h2>
+            <p style="color:#888; margin-bottom:40px;">Sélectionnez une catégorie en haut ou débloquez un accès complet :</p>
+
+            <div class="packs-container">
+                <div class="pack-card">
+                    <h3>PACK TENNIS</h3>
+                    <div class="price">12.90 €</div>
+                    <ul>
+                        <li><i class="fas fa-sparkle"></i> Tennis 🎾</li>
+                        <li><i class="fas fa-sparkle"></i> Montante 📈</li>
+                        <li><i class="fas fa-sparkle"></i> Accès au canal restreint 🔒</li>
+                    </ul>
+                    <button class="btn-subscribe" onclick="window.location.href='TON_LIEN_STRIPE_TENNIS'">S'inscrire</button>
+                </div>
+
+                <div class="pack-card" style="border-width: 3px;">
+                    <div style="background:var(--gold); color:black; font-size:0.7rem; font-weight:900; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:2px 15px; border-radius:10px;">TOP VENTE</div>
+                    <h3>PACK FULL</h3>
+                    <div class="price">26.90 €</div>
+                    <ul>
+                        <li><i class="fas fa-sparkle"></i> Football ⚽</li>
+                        <li><i class="fas fa-sparkle"></i> Tennis 🎾</li>
+                        <li><i class="fas fa-sparkle"></i> Sport US 🏀</li>
+                        <li><i class="fas fa-sparkle"></i> Montante 📈</li>
+                        <li><i class="fas fa-sparkle"></i> Accès au canal restreint 🔒</li>
+                    </ul>
+                    <button class="btn-subscribe" onclick="window.location.href='TON_LIEN_STRIPE_FULL'">S'inscrire</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="public-view" style="text-align:center; padding:100px 5%;">
-        <i class="fas fa-lock" style="font-size:3rem; color:var(--gold); margin-bottom:20px;"></i>
-        <h1>CONTENU RÉSERVÉ</h1>
-        <p>Veuillez vous connecter pour accéder aux analyses privées.</p>
-        <br>
-        <button onclick="netlifyIdentity.open('login')" style="background:var(--gold); border:none; padding:15px 40px; font-weight:900; border-radius:5px; cursor:pointer;">SE CONNECTER</button>
+        <h1>ELITE PRONOS</h1>
+        <p>Connectez-vous pour voir vos offres personnalisées.</p><br>
+        <button onclick="netlifyIdentity.open('login')" class="btn-subscribe" style="width:auto; padding:15px 50px;">SE CONNECTER</button>
     </div>
 </main>
 
-<footer>
-    &copy; 2026 ELITE PRONOS - Ne misez que ce que vous pouvez vous permettre de perdre. 18+
-</footer>
+<footer>&copy; 2026 ELITE PRONOS - 18+</footer>
 
 <script>
-    // GESTION CONNEXION
     netlifyIdentity.on('init', user => updateUI(user));
     netlifyIdentity.on('login', user => { updateUI(user); netlifyIdentity.close(); });
     netlifyIdentity.on('logout', () => { updateUI(null); location.reload(); });
@@ -154,43 +150,33 @@
         const sportsMenu = document.getElementById('sports-menu');
 
         if (user) {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem; border:1px solid var(--gold); padding:5px 12px; border-radius:5px;">DÉCONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.logout()" style="color:var(--gold); cursor:pointer; font-weight:700; font-size:0.8rem;">DÉCONNEXION</a>`;
             publicView.style.display = 'none';
             privateView.style.display = 'block';
             sportsMenu.style.display = 'block';
         } else {
-            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; cursor:pointer; font-weight:900; font-size:0.8rem; padding:8px 15px; border-radius:5px;">CONNEXION</a>`;
+            authStatus.innerHTML = `<a onclick="netlifyIdentity.open('login')" style="background:var(--gold); color:black; padding:8px 15px; border-radius:5px; font-weight:900; font-size:0.8rem;">CONNEXION</a>`;
             publicView.style.display = 'block';
             privateView.style.display = 'none';
             sportsMenu.style.display = 'none';
         }
     }
 
-    // GESTION FILTRES
     function filterProno(category) {
         document.getElementById('waiting-msg').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
-        document.getElementById('current-cat-title').innerText = "Catégorie : " + category;
-        
+        document.getElementById('current-cat-title').innerText = "SECTION " + category;
         let count = 0;
-        const cards = document.querySelectorAll('.prono-card');
-        
-        cards.forEach(card => {
-            const types = card.getAttribute('data-type');
-            if (types.includes(category)) {
+        document.querySelectorAll('.prono-card').forEach(card => {
+            if (card.getAttribute('data-type').includes(category)) {
                 card.style.display = 'block';
                 count++;
             } else {
                 card.style.display = 'none';
             }
         });
-
         document.getElementById('noProno').style.display = (count === 0) ? 'block' : 'none';
-        
-        // Scroll automatique vers les pronos
-        window.scrollTo({ top: document.getElementById('dashboard').offsetTop - 80, behavior: 'smooth' });
     }
 </script>
-
 </body>
 </html>
